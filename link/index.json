@@ -1,18 +1,10 @@
 {
-  "index":[
-    "set",{
-    "title":"helloworld",
-    "type":"html"
-    },
-    "echo",{
-      "content":["~title","~type"]
-    },
-    "do",{
-      "to":"fuck"
-    }],
-  "fuck":[
-    "echo",{
-      "comtent":"fuck u mother"
-    }
+  "index":["#list",[
+    ["#print",{"content":"好耶"}],
+    ["#print",{"content":"第二个print"}],
+    ["#list",[
+      ["#print",{"content":"套娃好耶"}]
+      ]]
+    ]
     ]
 }
