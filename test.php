@@ -1,6 +1,6 @@
 <?php
-function npp($dirr){
-  echo('22333333');
+function cao($text){
+  return $text;
 }
-npp(233);
+echo call_user_func('cao','2333');
 ?>

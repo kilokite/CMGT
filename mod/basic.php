@@ -9,4 +9,14 @@ class sys{
     }
   }
 }
+
+class htm{
+  static function set(){
+    
+  }
+  static function rende(){
+    
+  }
+}
+
 ?>
