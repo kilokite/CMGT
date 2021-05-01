@@ -1,39 +1,34 @@
 <?php
-//error_reporting(E_ALL);
 include 'mod/basic.php';
-//引入
-$limit = 9999;
-$glo_arr = array();
-//全局变量
+//非必须 引入基本模块
+$limit = 999;
+//限制执行的命令条数，防止出错出现死循环
+$glob_arr = array();
+//全局变量，不受pack限制
 
-function stlink($link_table){
-//载入链接
-$link = file_get_contents($link_table);
-$link = json_decode($link,true);
+class CMGT{
+    var $pack_path;
+    var $pack;
+    function __construct($file_path){
+        $this->pack_path = $file_path;
+        $this->pack = json_decode(file_get_contents($file_path));
+    }
 
-//$direction = 'index';
-link_pars($link['index']);
+    function mod_start($mod_name,$parameter){
+        $spil_where = stripos($mod_name,':');
+        return call_user_func(array(substr($mod_name,0,$spil_where),substr($mod_name,$spil_where+1)),$parameter);
+    }
+
+    function  link_start($link_name,$parameter){
+        $link = $this->link[$link_name];
+        $this->mod_start($link[0],$link[1])
+        //TODO link1 带加入资源检索模块
+    }
 }
-function link_pars($vars){
-  //运行模块
-  if (is_array($vars)) {
-    //判断是否为array(数组)
-    $command = $vars[0];
-    //if (substr($command,0,1) == '#') {
-      // 如果这玩意是变量(以前用于区分系统方法)
-      //return call_user_func(array('sys',substr($command,1)),$vars[1]);
-      
-    //}else{
-      //执行普通命令(我也不知道为什么要做这么个区分)
-      $spil_where = stripos($command,':');
-   //   echo $spil_where.$command;
-      return call_user_func(array(substr($command,0,$spil_where),substr($command,$spil_where+1)),$vars[1]);
-  //  }
-    
-  }else{
-    
-  }
-}
+$zocs = new CMGT('link/index.json');
+$zocs->link_start('sys:print',array(
+    'content' => '2333'
+));
 
-stlink('link/index.json')
+echo 'end';
 ?>

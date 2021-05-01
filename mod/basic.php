@@ -2,6 +2,7 @@
 class sys{
   static function print($text){
     echo $text['content'];
+    echo 233;
   }
   static function list($link){
     foreach ($link as $link_moudle){
@@ -10,7 +11,7 @@ class sys{
   }
 }
 
-class htm{
+class page{
   static function set(){
     
   }
