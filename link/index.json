@@ -1,24 +1,20 @@
 {
-  "index":["sys:list",[
-    ["sys:print",{"content":"好耶"}],
-    ["sys:print",{"content":"第二个print"}],
-    ["sys:list",[
-      ["sys:print",{"content":"套娃好耶"}],
-      ["htm:set",{
-        "#":["name"],
-        "need":["title"],
-        "title":"一个hello world",
-        "name":"#/res/user/name"
-      }
-      ]
-      ]
-      ],
-      ["htm:rende",[]]
+    "index": [
+        "sys:list",
+        [
+            [
+                "sys:print",
+                {
+                    "content": "hello world"
+                }
+            ],
+
+            [
+                "sys:print",
+                {
+                    "content": "<br>cnm php"
+                }
+            ]
+        ]
     ]
-    ],
-  "res":{
-    "user":{
-      "name":"zocs"
-    }
-  }
 }

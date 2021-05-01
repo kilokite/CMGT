@@ -1,12 +1,12 @@
 <?php
 class sys{
   static function print($text){
-    echo $text['content'];
-    echo 233;
+    echo $text->{'content'};
   }
-  static function list($link){
-    foreach ($link as $link_moudle){
-      link_pars($link_moudle);
+  static function list($link,$obj){
+    foreach ($link as $moudle){
+      //var_dump($moudle);
+      $obj->link_start_array($moudle);
     }
   }
 }
